@@ -1,2 +1,2 @@
 # ctfkit
-My tools set of CTF competetion wriiten by python.
+My tools set of CTF competetion written by python.
