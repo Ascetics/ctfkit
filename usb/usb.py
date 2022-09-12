@@ -198,8 +198,11 @@ def extract_hiddata(pcap_filename):
     '''
     outfile = str(pcap_filename) + ".txt"
     # cmd = "tshark -r %s -T fields -e usb.capdata > %s" % (pcap_filename, outfile)
-    cmd = "tshark -r %s -T fields -e usbhid.data > %s" % (
-        pcap_filename, outfile)
+
+    # display_filter = "'usb.src==\"2.3.1\"'"
+    # cmd = "tshark -r %s -2 -R %s -T fields -e usbhid.data > %s" % (pcap_filename, display_filter, outfile)    
+
+    cmd = "tshark -r %s -T fields -e usbhid.data > %s" % (pcap_filename, outfile)
     echo = os.popen(cmd).read()
     print(echo)
 
