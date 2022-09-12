@@ -1,5 +1,6 @@
 import base64
 import base58
+import base62
 import base91
 import py3base92 as base92
 import hashlib
@@ -116,6 +117,21 @@ class Cipher():
             return None
 
     @classmethod
+    def encode_string_base62(cls, s):
+        s_bytes = bytes(s, encoding="utf-8")
+        try:
+            return base62.encodebytes(s_bytes)
+        except:
+            return None
+
+    @classmethod
+    def decode_string_base62(cls, s):
+        try:
+            return base62.decodebytes(s).decode(encoding="utf-8")
+        except:
+            return None
+
+    @classmethod
     def encode_string_md5(cls, s):
         try:
             s_bytes = bytes(s, encoding="utf-8")
@@ -153,11 +169,6 @@ def test(s="Do you think the key word is welcome?"):
     result = Cipher.decode_string_base32(result)
     print("base32: %s" % result)
 
-    result = Cipher.encode_string_base58(s)
-    print("base58: %s" % result)
-    result = Cipher.decode_string_base58(result)
-    print("base58: %s" % result)
-
     result = Cipher.encode_string_base64(s)
     print("base64: %s" % result)
     result = Cipher.decode_string_base64(result)
@@ -168,6 +179,11 @@ def test(s="Do you think the key word is welcome?"):
     result = Cipher.decode_string_base85(result)
     print("base85: %s" % result)
 
+    result = Cipher.encode_string_base58(s)
+    print("base58: %s" % result)
+    result = Cipher.decode_string_base58(result)
+    print("base58: %s" % result)
+
     result = Cipher.encode_string_base91(s)
     print("base91: %s" % result)
     result = Cipher.decode_string_base91(result)
@@ -177,6 +193,11 @@ def test(s="Do you think the key word is welcome?"):
     print("base92: %s" % result)
     result = Cipher.decode_string_base92(result)
     print("base92: %s" % result)
+
+    result = Cipher.encode_string_base62(s)
+    print("base62: %s" % result)
+    result = Cipher.decode_string_base62(result)
+    print("base62: %s" % result)
     
 def base_family(s):
     result = Cipher.decode_string_base16(s)
@@ -193,13 +214,15 @@ def base_family(s):
     print("base91: %s" % result)
     result = Cipher.decode_string_base92(s)
     print("base92: %s" % result)
+    result = Cipher.decode_string_base62(s)
+    print("base62: %s" % result)
 
 def main():
     test()
     # base_family(s="StV1DL6CwTryKyV")                        # test for base58, you should see "base58: hello world"
     # base_family(s="fPNKd")                                  # test for base91, you should see "base91: test"    
     # base_family(s="8D9Kc)=/2$WzeFui#G9Km+<{VT2u9MZil}[A")   # test for base91, you should see "base91: May a moody baby doom a yam?\n"
-    base_family(s="Jw_@V")                                    # test for base92, you should see "base92: test"
+    # base_family(s="Jw_@V")                                    # test for base92, you should see "base92: test"
     
     # base_family(s="U2FsdGVkX1+WTSHujcCjvHj/gcwL0C7u37XtW4idGcpci3H913I=") # test for nothing
 
