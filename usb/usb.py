@@ -45,63 +45,111 @@ MOUSE_LOCUS = {
 
 KEYBOARD_MAP = {
     # a-z upper A-Z
-    0x04: {"desc": "Keyboard_a", "symbol": "a", "ascii": 0x61, "upper_symbol": "A", "upper_ascii": 0x41, },
-    0x05: {"desc": "Keyboard_b", "symbol": "b", "ascii": 0x62, "upper_symbol": "B", "upper_ascii": 0x42, },
-    0x06: {"desc": "Keyboard_c", "symbol": "c", "ascii": 0x63, "upper_symbol": "C", "upper_ascii": 0x43, },
-    0x07: {"desc": "Keyboard_d", "symbol": "d", "ascii": 0x64, "upper_symbol": "D", "upper_ascii": 0x44, },
-    0x08: {"desc": "Keyboard_e", "symbol": "e", "ascii": 0x65, "upper_symbol": "E", "upper_ascii": 0x45, },
-    0x09: {"desc": "Keyboard_f", "symbol": "f", "ascii": 0x66, "upper_symbol": "F", "upper_ascii": 0x46, },
-    0x0A: {"desc": "Keyboard_g", "symbol": "g", "ascii": 0x67, "upper_symbol": "G", "upper_ascii": 0x47, },
-    0x0B: {"desc": "Keyboard_h", "symbol": "h", "ascii": 0x68, "upper_symbol": "H", "upper_ascii": 0x48, },
-    0x0C: {"desc": "Keyboard_i", "symbol": "i", "ascii": 0x69, "upper_symbol": "I", "upper_ascii": 0x49, },
-    0x0D: {"desc": "Keyboard_j", "symbol": "j", "ascii": 0x6A, "upper_symbol": "J", "upper_ascii": 0x4A, },
-    0x0E: {"desc": "Keyboard_k", "symbol": "k", "ascii": 0x6B, "upper_symbol": "K", "upper_ascii": 0x4B, },
-    0x0F: {"desc": "Keyboard_l", "symbol": "l", "ascii": 0x6C, "upper_symbol": "L", "upper_ascii": 0x4C, },
-    0x10: {"desc": "Keyboard_m", "symbol": "m", "ascii": 0x6D, "upper_symbol": "M", "upper_ascii": 0x4D, },
-    0x11: {"desc": "Keyboard_n", "symbol": "n", "ascii": 0x6E, "upper_symbol": "N", "upper_ascii": 0x4E, },
-    0x12: {"desc": "Keyboard_o", "symbol": "o", "ascii": 0x6F, "upper_symbol": "O", "upper_ascii": 0x4F, },
-    0x13: {"desc": "Keyboard_p", "symbol": "p", "ascii": 0x70, "upper_symbol": "P", "upper_ascii": 0x50, },
-    0x14: {"desc": "Keyboard_q", "symbol": "q", "ascii": 0x71, "upper_symbol": "Q", "upper_ascii": 0x51, },
-    0x15: {"desc": "Keyboard_r", "symbol": "r", "ascii": 0x72, "upper_symbol": "R", "upper_ascii": 0x52, },
-    0x16: {"desc": "Keyboard_s", "symbol": "s", "ascii": 0x73, "upper_symbol": "S", "upper_ascii": 0x53, },
-    0x17: {"desc": "Keyboard_t", "symbol": "t", "ascii": 0x74, "upper_symbol": "T", "upper_ascii": 0x54, },
-    0x18: {"desc": "Keyboard_u", "symbol": "u", "ascii": 0x75, "upper_symbol": "U", "upper_ascii": 0x55, },
-    0x19: {"desc": "Keyboard_v", "symbol": "v", "ascii": 0x76, "upper_symbol": "V", "upper_ascii": 0x56, },
-    0x1A: {"desc": "Keyboard_w", "symbol": "w", "ascii": 0x77, "upper_symbol": "W", "upper_ascii": 0x57, },
-    0x1B: {"desc": "Keyboard_x", "symbol": "x", "ascii": 0x78, "upper_symbol": "X", "upper_ascii": 0x58, },
-    0x1C: {"desc": "Keyboard_y", "symbol": "y", "ascii": 0x79, "upper_symbol": "Y", "upper_ascii": 0x59, },
-    0x1D: {"desc": "Keyboard_z", "symbol": "z", "ascii": 0x7A, "upper_symbol": "Z", "upper_ascii": 0x5A, },
+    0x04: {"desc": "Keyboard_a", "symbol": "a", "ascii": 0x61,
+           "upper_symbol": "A", "upper_ascii": 0x41, },
+    0x05: {"desc": "Keyboard_b", "symbol": "b", "ascii": 0x62,
+           "upper_symbol": "B", "upper_ascii": 0x42, },
+    0x06: {"desc": "Keyboard_c", "symbol": "c", "ascii": 0x63,
+           "upper_symbol": "C", "upper_ascii": 0x43, },
+    0x07: {"desc": "Keyboard_d", "symbol": "d", "ascii": 0x64,
+           "upper_symbol": "D", "upper_ascii": 0x44, },
+    0x08: {"desc": "Keyboard_e", "symbol": "e", "ascii": 0x65,
+           "upper_symbol": "E", "upper_ascii": 0x45, },
+    0x09: {"desc": "Keyboard_f", "symbol": "f", "ascii": 0x66,
+           "upper_symbol": "F", "upper_ascii": 0x46, },
+    0x0A: {"desc": "Keyboard_g", "symbol": "g", "ascii": 0x67,
+           "upper_symbol": "G", "upper_ascii": 0x47, },
+    0x0B: {"desc": "Keyboard_h", "symbol": "h", "ascii": 0x68,
+           "upper_symbol": "H", "upper_ascii": 0x48, },
+    0x0C: {"desc": "Keyboard_i", "symbol": "i", "ascii": 0x69,
+           "upper_symbol": "I", "upper_ascii": 0x49, },
+    0x0D: {"desc": "Keyboard_j", "symbol": "j", "ascii": 0x6A,
+           "upper_symbol": "J", "upper_ascii": 0x4A, },
+    0x0E: {"desc": "Keyboard_k", "symbol": "k", "ascii": 0x6B,
+           "upper_symbol": "K", "upper_ascii": 0x4B, },
+    0x0F: {"desc": "Keyboard_l", "symbol": "l", "ascii": 0x6C,
+           "upper_symbol": "L", "upper_ascii": 0x4C, },
+    0x10: {"desc": "Keyboard_m", "symbol": "m", "ascii": 0x6D,
+           "upper_symbol": "M", "upper_ascii": 0x4D, },
+    0x11: {"desc": "Keyboard_n", "symbol": "n", "ascii": 0x6E,
+           "upper_symbol": "N", "upper_ascii": 0x4E, },
+    0x12: {"desc": "Keyboard_o", "symbol": "o", "ascii": 0x6F,
+           "upper_symbol": "O", "upper_ascii": 0x4F, },
+    0x13: {"desc": "Keyboard_p", "symbol": "p", "ascii": 0x70,
+           "upper_symbol": "P", "upper_ascii": 0x50, },
+    0x14: {"desc": "Keyboard_q", "symbol": "q", "ascii": 0x71,
+           "upper_symbol": "Q", "upper_ascii": 0x51, },
+    0x15: {"desc": "Keyboard_r", "symbol": "r", "ascii": 0x72,
+           "upper_symbol": "R", "upper_ascii": 0x52, },
+    0x16: {"desc": "Keyboard_s", "symbol": "s", "ascii": 0x73,
+           "upper_symbol": "S", "upper_ascii": 0x53, },
+    0x17: {"desc": "Keyboard_t", "symbol": "t", "ascii": 0x74,
+           "upper_symbol": "T", "upper_ascii": 0x54, },
+    0x18: {"desc": "Keyboard_u", "symbol": "u", "ascii": 0x75,
+           "upper_symbol": "U", "upper_ascii": 0x55, },
+    0x19: {"desc": "Keyboard_v", "symbol": "v", "ascii": 0x76,
+           "upper_symbol": "V", "upper_ascii": 0x56, },
+    0x1A: {"desc": "Keyboard_w", "symbol": "w", "ascii": 0x77,
+           "upper_symbol": "W", "upper_ascii": 0x57, },
+    0x1B: {"desc": "Keyboard_x", "symbol": "x", "ascii": 0x78,
+           "upper_symbol": "X", "upper_ascii": 0x58, },
+    0x1C: {"desc": "Keyboard_y", "symbol": "y", "ascii": 0x79,
+           "upper_symbol": "Y", "upper_ascii": 0x59, },
+    0x1D: {"desc": "Keyboard_z", "symbol": "z", "ascii": 0x7A,
+           "upper_symbol": "Z", "upper_ascii": 0x5A, },
 
     # 0-9 upper !@#$%^&*()
-    0x1E: {"desc": "Keyboard_1", "symbol": "1", "ascii": 0x31, "upper_symbol": "!", "upper_ascii": 0x21, },
-    0x1F: {"desc": "Keyboard_2", "symbol": "2", "ascii": 0x32, "upper_symbol": "@", "upper_ascii": 0x40, },
-    0x20: {"desc": "Keyboard_3", "symbol": "3", "ascii": 0x33, "upper_symbol": "#", "upper_ascii": 0x23, },
-    0x21: {"desc": "Keyboard_4", "symbol": "4", "ascii": 0x34, "upper_symbol": "$", "upper_ascii": 0x24, },
-    0x22: {"desc": "Keyboard_5", "symbol": "5", "ascii": 0x35, "upper_symbol": "%", "upper_ascii": 0x25, },
-    0x23: {"desc": "Keyboard_6", "symbol": "6", "ascii": 0x36, "upper_symbol": "^", "upper_ascii": 0x5E, },
-    0x24: {"desc": "Keyboard_7", "symbol": "7", "ascii": 0x37, "upper_symbol": "&", "upper_ascii": 0x26, },
-    0x25: {"desc": "Keyboard_8", "symbol": "8", "ascii": 0x38, "upper_symbol": "*", "upper_ascii": 0x2A, },
-    0x26: {"desc": "Keyboard_9", "symbol": "9", "ascii": 0x39, "upper_symbol": "(", "upper_ascii": 0x28, },
-    0x27: {"desc": "Keyboard_0", "symbol": "0", "ascii": 0x30, "upper_symbol": ")", "upper_ascii": 0x29, },
+    0x1E: {"desc": "Keyboard_1", "symbol": "1", "ascii": 0x31,
+           "upper_symbol": "!", "upper_ascii": 0x21, },
+    0x1F: {"desc": "Keyboard_2", "symbol": "2", "ascii": 0x32,
+           "upper_symbol": "@", "upper_ascii": 0x40, },
+    0x20: {"desc": "Keyboard_3", "symbol": "3", "ascii": 0x33,
+           "upper_symbol": "#", "upper_ascii": 0x23, },
+    0x21: {"desc": "Keyboard_4", "symbol": "4", "ascii": 0x34,
+           "upper_symbol": "$", "upper_ascii": 0x24, },
+    0x22: {"desc": "Keyboard_5", "symbol": "5", "ascii": 0x35,
+           "upper_symbol": "%", "upper_ascii": 0x25, },
+    0x23: {"desc": "Keyboard_6", "symbol": "6", "ascii": 0x36,
+           "upper_symbol": "^", "upper_ascii": 0x5E, },
+    0x24: {"desc": "Keyboard_7", "symbol": "7", "ascii": 0x37,
+           "upper_symbol": "&", "upper_ascii": 0x26, },
+    0x25: {"desc": "Keyboard_8", "symbol": "8", "ascii": 0x38,
+           "upper_symbol": "*", "upper_ascii": 0x2A, },
+    0x26: {"desc": "Keyboard_9", "symbol": "9", "ascii": 0x39,
+           "upper_symbol": "(", "upper_ascii": 0x28, },
+    0x27: {"desc": "Keyboard_0", "symbol": "0", "ascii": 0x30,
+           "upper_symbol": ")", "upper_ascii": 0x29, },
 
     # other keyboard key
     0x28: {"desc": "Keyboard_Enter", "symbol": "<Enter>", "ascii": 0x0D, },
     0x29: {"desc": "Keyboard_Escape", "symbol": "<ESC>", "ascii": 0x1B, },
-    0x2A: {"desc": "Keyboard_Backspace", "symbol": "<Backspace>", "ascii": 0x08, },
+    0x2A: {"desc": "Keyboard_Backspace", "symbol": "<Backspace>",
+           "ascii": 0x08, },
     0x2B: {"desc": "Keyboard_Tab", "symbol": "<Tab>", "ascii": 0x09, },
     0x2C: {"desc": "Keyboard_KongGe", "symbol": "<SPACE>", "ascii": 0x20, },
 
-    0x2D: {"desc": "Keyboard_JianHao", "symbol": "-", "ascii": 0x2D, "upper_symbol": "_", "upper_ascii": 0x5F, },
-    0x2E: {"desc": "Keyboard_DengHao", "symbol": "=", "ascii": 0x3D, "upper_symbol": "+", "upper_ascii": 0x2B, },
-    0x2F: {"desc": "Keyboard_ZuoZhongKuoHao", "symbol": "[", "ascii": 0x5B, "upper_symbol": "{", "upper_ascii": 0x7B, },
-    0x30: {"desc": "Keyboard_YouZhongKuoHao", "symbol": "]", "ascii": 0x5D, "upper_symbol": "}", "upper_ascii": 0x7D, },
-    0x31: {"desc": "Keyboard_FanXieGang", "symbol": "\\", "ascii": 0x5C, "upper_symbol": "|", "upper_ascii": 0x7C, },
-    0x33: {"desc": "Keyboard_FenHao", "symbol": ";", "ascii": 0x3B, "upper_symbol": ":", "upper_ascii": 0x3A, },
-    0x34: {"desc": "Keyboard_DanYinHao", "symbol": "\'", "ascii": 0x27, "upper_symbol": "\"", "upper_ascii": 0x22, },
-    0x35: {"desc": "Keyboard_BoLangXian", "symbol": "`", "ascii": 0x60, "upper_symbol": "~", "upper_ascii": 0x7E, },
-    0x36: {"desc": "Keyboard_Douhao", "symbol": ",", "ascii": 0x2C, "upper_symbol": "<", "upper_ascii": 0x3C, },
-    0x37: {"desc": "Keyboard_JuHao", "symbol": ".", "ascii": 0x2E, "upper_symbol": ">", "upper_ascii": 0x3E, },
-    0x38: {"desc": "Keyboard_XieGang_WenHao", "symbol": "/", "ascii": 0x2F, "upper_symbol": "?", "upper_ascii": 0x3F, },
+    0x2D: {"desc": "Keyboard_JianHao", "symbol": "-", "ascii": 0x2D,
+           "upper_symbol": "_", "upper_ascii": 0x5F, },
+    0x2E: {"desc": "Keyboard_DengHao", "symbol": "=", "ascii": 0x3D,
+           "upper_symbol": "+", "upper_ascii": 0x2B, },
+    0x2F: {"desc": "Keyboard_ZuoZhongKuoHao", "symbol": "[", "ascii": 0x5B,
+           "upper_symbol": "{", "upper_ascii": 0x7B, },
+    0x30: {"desc": "Keyboard_YouZhongKuoHao", "symbol": "]", "ascii": 0x5D,
+           "upper_symbol": "}", "upper_ascii": 0x7D, },
+    0x31: {"desc": "Keyboard_FanXieGang", "symbol": "\\", "ascii": 0x5C,
+           "upper_symbol": "|", "upper_ascii": 0x7C, },
+    0x33: {"desc": "Keyboard_FenHao", "symbol": ";", "ascii": 0x3B,
+           "upper_symbol": ":", "upper_ascii": 0x3A, },
+    0x34: {"desc": "Keyboard_DanYinHao", "symbol": "\'", "ascii": 0x27,
+           "upper_symbol": "\"", "upper_ascii": 0x22, },
+    0x35: {"desc": "Keyboard_BoLangXian", "symbol": "`", "ascii": 0x60,
+           "upper_symbol": "~", "upper_ascii": 0x7E, },
+    0x36: {"desc": "Keyboard_Douhao", "symbol": ",", "ascii": 0x2C,
+           "upper_symbol": "<", "upper_ascii": 0x3C, },
+    0x37: {"desc": "Keyboard_JuHao", "symbol": ".", "ascii": 0x2E,
+           "upper_symbol": ">", "upper_ascii": 0x3E, },
+    0x38: {"desc": "Keyboard_XieGang_WenHao", "symbol": "/", "ascii": 0x2F,
+           "upper_symbol": "?", "upper_ascii": 0x3F, },
 
     # function key F1-F12
     0x39: {"desc": "Keyboard_CapsLock", "symbol": "<CapsLock>", },
@@ -172,7 +220,7 @@ def process_cmd_argv(argv):
     pcapfile = None
     mode = None
     try:
-        opts, args = getopt.getopt(argv, "hf:m:", ["pcapfile=","mode="])
+        opts, args = getopt.getopt(argv, "hf:m:", ["pcapfile=", "mode="])
     except getopt.GetoptError:
         print(USAGE)
         sys.exit(2)
@@ -191,20 +239,24 @@ def process_cmd_argv(argv):
         print(USAGE)
         sys.exit(2)
 
+
 def extract_hiddata(pcap_filename):
     '''
     tshark -r pcapfile.pcap -T fields -e usb.capdata > pcapfile.pcap.txt
     extract usb mouse hid data 4 bytes (hex) every data frame
     '''
     outfile = str(pcap_filename) + ".txt"
-    # cmd = "tshark -r %s -T fields -e usb.capdata > %s" % (pcap_filename, outfile)
+    # 注意pcap文件中数据的格式，是usb.capdata还是usbhid.data
 
-    # display_filter = "'usb.src==\"2.3.1\"'"
-    # cmd = "tshark -r %s -2 -R %s -T fields -e usbhid.data > %s" % (pcap_filename, display_filter, outfile)    
+    # cmd = "tshark -r %s -T fields -e usb.capdata > %s" % (
+    # pcap_filename, outfile)
 
-    cmd = "tshark -r %s -T fields -e usbhid.data > %s" % (pcap_filename, outfile)
+    cmd = "tshark -r %s -T fields -e usbhid.data > %s" % (
+        pcap_filename, outfile)
+
     echo = os.popen(cmd).read()
     print(echo)
+
 
 def process_mouse_data(line):
     btn_code = int(line[0:2], 16)
@@ -219,7 +271,7 @@ def process_mouse_data(line):
 
     x_all, y_all, colors_all = \
         MOUSE_LOCUS.get('all').get('x'), \
-        MOUSE_LOCUS.get('all').get('y'),\
+        MOUSE_LOCUS.get('all').get('y'), \
         MOUSE_LOCUS.get('all').get('colors')
     x, y = x_all[-1] + x, y_all[-1] + y
     x_all.append(x)
@@ -247,6 +299,7 @@ def process_mouse_data(line):
         colors_all.append(MOUSE_LOCUS.get('both').get('color'))
     else:
         print(btn_code)
+
 
 def process_keyboard_data(line):
     '''
@@ -281,6 +334,7 @@ def process_keyboard_data(line):
     if keyboard_type:
         KEYBOARD_TYPE.append(keyboard_type + "\n")
 
+
 def process_file_data(filename):
     '''
     read usb.capdata(hex) to memory and fill all & move & left & right
@@ -290,13 +344,14 @@ def process_file_data(filename):
     3rd byte represent vertial setp -128~127 px
     '''
     with open(filename, encoding='utf-8') as f:
-        lines = f.readlines()    
+        lines = f.readlines()
         for line in lines:
             if 9 == len(line):
                 process_mouse_data(line)
             elif 17 == len(line):
                 process_keyboard_data(line)
-               
+
+
 def draw_mouse_locus(x, y, c, filename):
     x, y, c = np.array(x), np.array(y), np.array(c)
     plt.figure()
@@ -305,33 +360,35 @@ def draw_mouse_locus(x, y, c, filename):
     plt.grid(linestyle='--')
     plt.savefig('./%s' % filename)
 
+
 def write_keyboard_type(filename):
     with open(filename, 'w') as f:
         f.writelines(KEYBOARD_TYPE)
 
 
-
 def main(argv):
     argv_dict = process_cmd_argv(argv)
     extract_hiddata(argv_dict['pcapfile'])
-    process_file_data(str(argv_dict['pcapfile'])+".txt")
+    process_file_data(str(argv_dict['pcapfile']) + ".txt")
 
     mode = argv_dict['mode']
 
     if 'all' == mode:
         c = MOUSE_LOCUS.get(mode).get('colors')
     else:
-        c = [MOUSE_LOCUS.get(mode).get('color')] * len(MOUSE_LOCUS.get(mode).get('x'))
+        c = [MOUSE_LOCUS.get(mode).get('color')] * len(
+            MOUSE_LOCUS.get(mode).get('x'))
     mouse_fig = str(argv_dict['pcapfile']) + "_mouse.png"
     draw_mouse_locus(
         x=MOUSE_LOCUS.get(mode).get('x'),
-        y=MOUSE_LOCUS.get(mode).get('y'), 
+        y=MOUSE_LOCUS.get(mode).get('y'),
         c=c,
         filename=mouse_fig
-        )
+    )
 
     keyboard_txt = str(argv_dict['pcapfile']) + "_keyboard.txt"
     write_keyboard_type(keyboard_txt)
+
 
 if __name__ == '__main__':
     main(sys.argv[1:])
