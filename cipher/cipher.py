@@ -11,15 +11,15 @@ class Cipher():
     @staticmethod
     def encode_string_base16(s):
         s_bytes = bytes(s, encoding="utf-8")
-        try:            
+        try:
             return base64.b16encode(s_bytes).decode(encoding="utf-8")
         except:
             return None
-    
+
     @staticmethod
     def decode_string_base16(s):
         s_bytes = bytes(s, encoding="utf-8")
-        try:            
+        try:
             return base64.b16decode(s_bytes).decode(encoding="utf-8")
         except:
             return None
@@ -43,15 +43,15 @@ class Cipher():
     @staticmethod
     def encode_string_base64(s):
         s_bytes = bytes(s, encoding="utf-8")
-        try:            
+        try:
             return base64.b64encode(s_bytes).decode(encoding="utf-8")
         except:
             return None
 
     @staticmethod
     def decode_string_base64(s):
-        s_bytes = bytes(s, encoding="utf-8")      
-        try:            
+        s_bytes = bytes(s, encoding="utf-8")
+        try:
             return base64.b64decode(s_bytes).decode(encoding="utf-8")
         except:
             return None
@@ -75,15 +75,15 @@ class Cipher():
     @staticmethod
     def encode_string_base58(s):
         s_bytes = bytes(s, encoding="utf-8")
-        try:            
+        try:
             return base58.b58encode(s_bytes).decode(encoding="utf-8")
         except:
             return None
 
     @staticmethod
     def decode_string_base58(s):
-        s_bytes = bytes(s, encoding="utf-8")      
-        try:            
+        s_bytes = bytes(s, encoding="utf-8")
+        try:
             return base58.b58decode(s_bytes).decode(encoding="utf-8")
         except:
             return None
@@ -106,6 +106,7 @@ class Cipher():
     @staticmethod
     def encode_string_base92(s):
         try:
+            base92.b92encode(s)
             return base92.encode(s)
         except:
             return None
@@ -157,7 +158,7 @@ class Cipher():
     def decode_string_md5(s):
         print("to be realized")
         pass
-        
+
     @staticmethod
     def encode_string_aes(s):
         print("to be realized")
@@ -168,9 +169,8 @@ class Cipher():
         print("to be realized")
         pass
 
-   
 
-def test(s="Do you think the key word is welcome?"):
+def tt(s="Do you think the key word is welcome?"):
     result = Cipher.encode_string_base16(s)
     print("base16: %s" % result)
     result = Cipher.decode_string_base16(result)
@@ -211,7 +211,7 @@ def test(s="Do you think the key word is welcome?"):
     result = Cipher.decode_string_base62(result)
     print("base62: %s" % result)
 
-    
+
 def base_family(s):
     result = Cipher.decode_string_base16(s)
     print("base16: %s" % result)
@@ -230,14 +230,16 @@ def base_family(s):
     result = Cipher.decode_string_base62(s)
     print("base62: %s" % result)
 
+
 def main():
-    test()
+    tt()
     # base_family(s="StV1DL6CwTryKyV")                        # test for base58, you should see "base58: hello world"
     # base_family(s="fPNKd")                                  # test for base91, you should see "base91: test"    
     # base_family(s="8D9Kc)=/2$WzeFui#G9Km+<{VT2u9MZil}[A")   # test for base91, you should see "base91: May a moody baby doom a yam?\n"
     # base_family(s="Jw_@V")                                  # test for base92, you should see "base92: test"
-    
+
     # base_family(s="U2FsdGVkX1+WTSHujcCjvHj/gcwL0C7u37XtW4idGcpci3H913I=") # test for nothing
+
 
 if __name__ == '__main__':
     main()
