@@ -28,7 +28,7 @@ def encode(string):
 
 
 def decode(string):
-    old_str = string.replace('=', '')
+    old_str = string.replace('=', '').strip('\r').strip('\n')
     new_str = ''
     result = ''
     # 把密文转换成二进制，
