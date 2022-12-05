@@ -8,6 +8,13 @@ import numpy as np
 
 
 def string_to_array(string, size, offset):
+    """
+    根据加解密矩阵维度，把字符串转换为相应的数字矩阵
+    :param string: 待处理的字符串
+    :param size: 加解密矩阵维度
+    :param offset: 偏移量，参看encode和decode的offset
+    :return:
+    """
     string = string.upper()
     blocks = [string[i:i + size] for i in range(0, len(string), size)]
     if len(blocks[-1]) != size:  # 补齐成矩阵
@@ -18,14 +25,18 @@ def string_to_array(string, size, offset):
 
 
 def encode(encryptor, string, offset=0):
-    '''
+    """
     希尔加密
     :param encryptor: 加密矩阵
     :param string: 明文
-    :param offset: 默认A=0
+    :param offset: 默认字母A=0
     :return: 密文
-    '''
-    assert encryptor.ndim == 2 and encryptor.shape[0] == encryptor.shape[1]
+    """
+    if encryptor.ndim != 2:
+        raise ValueError(f'encryptor ndim is illegal. must be 2.')
+    if encryptor.shape[0] != encryptor.shape[1]:
+        raise ValueError(f'encryptor shape is illegal. must be square matrix.')
+    # assert encryptor.ndim == 2 and encryptor.shape[0] == encryptor.shape[1]
 
     arr = string_to_array(string, encryptor.shape[0], offset)  # 字符串转数字矩阵
     result = (encryptor @ arr.T).T % 26 + ord('A') - offset  # 算法
@@ -34,14 +45,18 @@ def encode(encryptor, string, offset=0):
 
 
 def decode(decryptor, string, offset=0):
-    '''
+    """
     希尔解密，算法和加密一样
     :param decryptor: 解密矩阵
     :param string: 密文
-    :param offset: 默认A=0
+    :param offset: 默认字母A=0
     :return: 明文
-    '''
-    assert decryptor.ndim == 2 and decryptor.shape[0] == decryptor.shape[1]
+    """
+    if decryptor.ndim != 2:
+        raise ValueError(f'decryptor ndim is illegal. must be 2.')
+    if decryptor.shape[0] != decryptor.shape[1]:
+        raise ValueError(f'decryptor shape is illegal. must be square matrix.')
+    # assert decryptor.ndim == 2 and decryptor.shape[0] == decryptor.shape[1]
 
     arr = string_to_array(string, decryptor.shape[0], offset)  # 字符串转数字矩阵
     result = (decryptor @ arr.T).T % 26 + ord('A') - offset  # 算法
