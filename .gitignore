@@ -130,7 +130,6 @@ dmypy.json
 
 # test data
 *.pcapng.txt
-*.csv
 *.xls
 *.xlsx
 *.bin
