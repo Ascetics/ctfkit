@@ -19,8 +19,8 @@ b2 = list(map(lambda x: base64.b64decode(x), b1))
 print(b2)
 
 这为隐写创造了空间。
-=，余2个字符，有4bit偏移
-==，余1个字符，有4bit偏移
+1个等号=，余2个字符。6 - (2*8 % 6) = 2，有2bit隐写空间。
+2个等号==，余1个字符。6- （8 % 6） = 4，有4bit隐写空间。
 """
 alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 
