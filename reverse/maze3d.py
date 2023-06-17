@@ -1,8 +1,8 @@
 # -*- coding:utf8 -*-
 """
 三维迷宫，深度优先算法
-从@经过*走到&，键盘ad控制x的-+，键盘ws控制y的-+，键盘oi控制z的-+
-二维数组为z坐标，每个二维数组 行是y坐标，列是x坐标，定义坐标为（z,y,x）
+从@经过*走到&，键盘ad控制z的-+，键盘ws控制y的-+，键盘oi控制x的-+
+二维数组为x坐标，每个二维数组 行是y坐标，列是z坐标，定义坐标为（x,y,z）
 z[0]
 ##****#
 ##*##*#
@@ -66,8 +66,8 @@ PASS = '*'  # 通路
 WALL = '#'  # 墙壁不通
 MAZE_X = 7  # 迷宫X数
 MAZE_Y = 7  # 迷宫Y数
-MAZE_Z = 7  # 迷宫Z数字
-# 迷宫，二维数组为z坐标，每个二维数组 行是y坐标，列是x坐标，定义坐标为（z,y,x）
+MAZE_Z = 7  # 迷宫Z数
+# 迷宫，二维数组为x坐标，每个二维数组 行是y坐标，列是z坐标，定义坐标为（x,y,z）
 MAZE = [
     ['##****#',
      '##*##*#',
@@ -119,23 +119,23 @@ MAZE = [
      '#####&#',
      '#####**', ],
 ]
-VISIT = [[[0 for k in range(MAZE_Z)] for j in range(MAZE_Y)] for i in
+VISIT = [[[0 for z in range(MAZE_Z)] for y in range(MAZE_Y)] for x in
          range(MAZE_X)]  # 辅助标记
 
-# 二维数组为z坐标，每个二维数组 行是y坐标，列是x坐标，定义坐标为（z,y,x）
-X_MINUS, X_PLUS = 'a', 'd'
+# 二维数组为x坐标，每个二维数组 行是y坐标，列是z坐标，定义坐标为（x,y,z）
+X_MINUS, X_PLUS = 'o', 'i'
 Y_MINUS, Y_PLUS = 'w', 's'
-Z_MINUS, Z_PLUS = 'o', 'i'
+Z_MINUS, Z_PLUS = 'a', 'd'
 FOUND = False  # 到达终点
 RESULT = []  # 路径操作
 
 
-def help3d(z, y, x):
-    global START, FINISH, WALL, PASS, MAZE, MAZE_X, MAZE_Y, MAZE_Z, VISIT
+def help3d(x, y, z):
+    global START, FINISH, WALL, PASS, MAZE, MAZE_Z, MAZE_Y, MAZE_X, VISIT
     global X_MINUS, X_PLUS, Y_MINUS, Y_PLUS, Z_MINUS, Z_PLUS, FOUND, RESULT
-    VISIT[z][y][x] = 1
+    VISIT[x][y][z] = 1
     for step in {X_MINUS, X_PLUS, Y_MINUS, Y_PLUS, Z_MINUS, Z_PLUS}:
-        newz, newy, newx = z, y, x
+        newx, newy, newz = x, y, z
         if step == X_MINUS:
             newx -= 1
         elif step == X_PLUS:
@@ -151,14 +151,14 @@ def help3d(z, y, x):
 
         if (0 <= newx < MAZE_X and 0 <= newy < MAZE_Y and 0 <= newz < MAZE_Z) \
             and \
-            (MAZE[newz][newy][newx] == PASS or
-             MAZE[newz][newy][newx] == FINISH) \
-            and VISIT[newz][newy][newx] == 0:
-            if MAZE[newz][newy][newx] == PASS:
-                help3d(newz, newy, newx)
+            (MAZE[newx][newy][newz] == PASS or
+             MAZE[newx][newy][newz] == FINISH) \
+            and VISIT[newx][newy][newz] == 0:
+            if MAZE[newx][newy][newz] == PASS:
+                help3d(newx, newy, newz)
                 if FOUND:
                     RESULT.append(step)  # 到达终点时才记录路径
-            elif MAZE[newz][newy][newx] == FINISH:
+            elif MAZE[newx][newy][newz] == FINISH:
                 FOUND = True
                 RESULT.append(step)
                 print('Bingo!')
