@@ -24,8 +24,9 @@ START = 'A'  # 起点
 FINISH = 'E'  # 终点
 PASS = '$'  # 通路
 WALL = 'W'  # 墙壁不通
-MAZE_ROW = 15  # 行数
-MAZE_COL = 15  # 列数
+MAZE_ROW = 15  # 迷宫行数
+MAZE_COL = 15  # 迷宫列数
+# 迷宫
 MAZE = ['WWWWWWWWWWWWWWW',
         'WA$$WWWWWW$$$$W',
         'WWW$WWWWW$$WW$W',
@@ -41,13 +42,13 @@ MAZE = ['WWWWWWWWWWWWWWW',
         'W$WWWW$WWWW$WWW',
         'W$$$$$$WWWW$$EW',
         'WWWWWWWWWWWWWWW', ]
-VISIT = [[0 for j in range(MAZE_COL)] for i in range(MAZE_ROW)]
-UP = 0
-DOWN = 2
-LEFT = 3
-RIGHT = 1
+VISIT = [[0 for j in range(MAZE_COL)] for i in range(MAZE_ROW)]  # 辅助标记
+UP = 0  # 上
+DOWN = 2  # 下
+LEFT = 3  # 左
+RIGHT = 1  # 右
 FOUND = False  # 到达终点
-RESULT = []
+RESULT = []  # 路径操作
 
 
 def help2d(i, j):
@@ -84,7 +85,3 @@ if __name__ == '__main__':
     RESULT.reverse() # 递归记录，需要反向
     for x in RESULT:
         print(x, end='')
-    # s = '11223322211112223322332211111001100100000001011122223322211223322211'
-    # for i in range(0, len(s), 4):
-    #     print(int(s[i: i+4], base=16))
-    # print(chr(43), chr(86))
