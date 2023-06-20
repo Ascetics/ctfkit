@@ -68,7 +68,7 @@ def help2d(x, y):
             and (
                 MAZE[newx * MAZE_Y + newy] == PASS
                 or MAZE[newx * MAZE_Y + newy] == FINISH
-        )
+            )
         ):
             RESULT.append(step)
             help2d(newx, newy)
