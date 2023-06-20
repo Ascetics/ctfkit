@@ -1,8 +1,8 @@
 # -*- coding:utf8 -*-
 """
-二维迷宫，深度优先算法
-MAZE = ['WWWWWWWWWWWWWWW',
-        'WA$$WWWWWW$$$$W',
+二维迷宫，深度优先算法，迷宫是字符串列表
+MAZE = ['WAWWWWWWWWWWWWW', #--Y
+        'W$$$WWWWWW$$$$W',
         'WWW$WWWWW$$WW$W',
         'W$$$WWWWW$WWW$W',
         'W$WWWWWWW$WWW$W',
@@ -16,19 +16,23 @@ MAZE = ['WWWWWWWWWWWWWWW',
         'W$WWWW$WWWW$WWW',
         'W$$$$$$WWWW$$EW',
         'WWWWWWWWWWWWWWW', ]
+#        |
+#        X
 0上，1右，2下，3左
-路径操作：11223322211112223322332211111001100100000001011122223322211223322211
+起点A坐标(0, 1)
+终点E坐标(14, 14)
+路径操作：211223322211112223322332211111001100100000001011122223322211223322211
 """
 
 START = 'A'  # 起点
 FINISH = 'E'  # 终点
 PASS = '$'  # 通路
 WALL = 'W'  # 墙壁不通
-MAZE_ROW = 15  # 迷宫行数
-MAZE_COL = 15  # 迷宫列数
+MAZE_X = 15  # 迷宫行数
+MAZE_Y = 15  # 迷宫列数
 # 迷宫
-MAZE = ['WWWWWWWWWWWWWWW',
-        'WA$$WWWWWW$$$$W',
+MAZE = ['WAWWWWWWWWWWWWW',
+        'W$$$WWWWWW$$$$W',
         'WWW$WWWWW$$WW$W',
         'W$$$$$$WW$WWW$W',
         'W$WWWWWWW$WWW$W',
@@ -42,46 +46,44 @@ MAZE = ['WWWWWWWWWWWWWWW',
         'W$WWWW$WWWW$WWW',
         'W$$$$$$WWWW$$EW',
         'WWWWWWWWWWWWWWW', ]
-VISIT = [[0 for j in range(MAZE_COL)] for i in range(MAZE_ROW)]  # 辅助标记
-UP = 0  # 上
-DOWN = 2  # 下
-LEFT = 3  # 左
-RIGHT = 1  # 右
-FOUND = False  # 到达终点
+VISIT = [[0 for y in range(MAZE_Y)] for x in range(MAZE_X)]  # 辅助标记
+UP = '0'  # 上
+DOWN = '2'  # 下
+LEFT = '3'  # 左
+RIGHT = '1'  # 右
 RESULT = []  # 路径操作
 
 
-def help2d(i, j):
-    global START, FINISH, WALL, PASS, MAZE, MAZE_ROW, MAZE_COL
-    global VISIT, UP, DOWN, LEFT, RIGHT, FOUND, RESULT
-    VISIT[i][j] = 1
-    for step in {UP, DOWN, LEFT, RIGHT}:
-        newi, newj = i, j
-        if step == UP:
-            newi -= 1
-        elif step == DOWN:
-            newi += 1
-        elif step == LEFT:
-            newj -= 1
-        elif step == RIGHT:
-            newj += 1
+def help2d(x, y):
+    global START, FINISH, WALL, PASS, MAZE, MAZE_X, MAZE_Y
+    global VISIT, UP, DOWN, LEFT, RIGHT, RESULT
 
-        if (0 <= newi < MAZE_ROW and 0 <= newj < MAZE_COL) and \
-            (MAZE[newi][newj] == PASS or MAZE[newi][newj] == FINISH) and \
-            VISIT[newi][newj] == 0:
-            if MAZE[newi][newj] == PASS:
-                help2d(newi, newj)
-                if FOUND:
-                    RESULT.append(step)  # 到达终点时才记录路径
-            elif MAZE[newi][newj] == FINISH:
-                FOUND = True
-                RESULT.append(step)
-                print('Bingo!')
-                return
+    VISIT[x][y] = 1
+
+    if MAZE[x][y] == FINISH:
+        print(''.join(RESULT))
+        return
+
+    for step in (UP, DOWN, LEFT, RIGHT,):
+        newx, newy = x, y
+        if step == UP:
+            newx -= 1
+        elif step == DOWN:
+            newx += 1
+        elif step == LEFT:
+            newy -= 1
+        elif step == RIGHT:
+            newy += 1
+        if (
+            0 <= newx < MAZE_X and 0 <= newy < MAZE_Y
+            and VISIT[newx][newy] == 0.
+            and (MAZE[newx][newy] == PASS or MAZE[newx][newy] == FINISH)
+        ):
+            RESULT.append(step)
+            help2d(newx, newy)
+            RESULT.pop(-1)
+            VISIT[newx][newy] = 0
 
 
 if __name__ == '__main__':
-    help2d(1, 1)
-    RESULT.reverse() # 递归记录，需要反向
-    for x in RESULT:
-        print(x, end='')
+    help2d(0, 1)
