@@ -8,7 +8,7 @@
 # https://github.com/pocmo/Python-Brainfuck
 
 import sys
-from . import getch
+from crypto import getch
 
 
 def execute(filename):
