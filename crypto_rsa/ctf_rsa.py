@@ -27,5 +27,6 @@ m = b'r'
 m = int.from_bytes(m, 'big')
 c = pow(m, e, n)
 m = pow(c, d, n)
-m = m.to_bytes(1, 'big').decode('ascii')
+# m = m.to_bytes(1, 'big').decode('ascii')
+m = long_to_bytes(m).decode('utf-8')
 print(m)
