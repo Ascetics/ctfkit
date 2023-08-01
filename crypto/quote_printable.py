@@ -1,5 +1,6 @@
 # -*- coding:utf8 -*-
 """
+BUUCTF Crypto Quoted-printable题目
 Quote-Printable 编码解析
 """
 import quopri
