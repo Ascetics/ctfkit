@@ -1,5 +1,6 @@
 # -*- coding:utf-8 -*-
 """
+BUUCTF Crypto Url编码题目
 Url parse
 """
 from urllib.parse import quote, unquote
