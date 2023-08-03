@@ -77,7 +77,7 @@ def dec(string):
 
 if __name__ == '__main__':
     # _create_csv()
-    plain = dec('049117955478')
+    plain = dec('606046152623600817831216121621196386')
     print(plain)
     cipher = enc('中文查询电码')
     print(cipher)
