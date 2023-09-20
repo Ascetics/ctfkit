@@ -67,11 +67,11 @@ if __name__ == '__main__':
     encrypt_data = base64.b64encode(encrypt_data)
     print('encrypt_data:', encrypt_data)
 
-
 """
 CBC & ECB相比多出了一个vi（偏移量）。
 cipher = AES.new(self.__key, AES.MODE_CBC, iv)
 """
+
 
 def encrypt(data, password):
     bs = AES.block_size
@@ -87,7 +87,7 @@ def decrypt(data, password):
     bs = AES.block_size
     if len(data) <= bs:
         return (data)
-    unpad = lambda s: s[0:-ord(s[-1])]
+    unpad = lambda s: s[0:-ord(s.decode('utf-8')[-1])]
     iv = data[:bs]
     cipher = AES.new(password.encode('utf-8'), AES.MODE_CBC, iv)
     data = unpad(cipher.decrypt(data[bs:]))
