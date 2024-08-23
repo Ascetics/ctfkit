@@ -2,6 +2,8 @@ import zipfile
 
 """
 zipfile模块实现zip文件压缩和解压缩
+rarfile rar
+tarfile tar
 """
 
 # 压缩2个py文件到compress.zip文件
