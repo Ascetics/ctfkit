@@ -1,5 +1,4 @@
 import socket
-import time
 
 HOST, PORT = 'challenge.qsnctf.com', 33799
 
@@ -16,9 +15,6 @@ def solve_two_sum(list_nums, target_num):
 def solve_two_sum_pro(list_nums, target_num):
     '''
     这个效率更高
-    :param list_nums:
-    :param target_num:
-    :return:
     '''
     dict_nums = dict()
     for idx, num in enumerate(list_nums):
