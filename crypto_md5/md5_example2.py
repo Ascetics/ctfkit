@@ -23,7 +23,7 @@ def build_text(text, index):
 
 def construct_text(text_len=1):
     text = bytearray(text_len)
-    build_text(text, 0)
+    build_text(text, index=0)
 
 
 if __name__ == '__main__':
